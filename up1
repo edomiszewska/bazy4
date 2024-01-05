@@ -1,0 +1,41 @@
+=======================5 stycznia 2024=======================
+
+Zapytania SQL dokonujące agregacji tzw. zapytania agregujące posługują się trzema ważnymi elementami
+składniowymi:
+-klauzulą GROUP BY, wskazującą sposób podziału rekordów tabeli na tzw.grupy,
+-funkcjami grupowymi SQL, ktore umozliwiaja wyliczanie sum, srednich, odchylen, minimów, maksymw itp. dla kazdej grupy.
+-klauzulą HAVING, umozliwiajaca odrzucenie grup niespełniających podanego warunku logicznego.
+
+sum() - suma wartosci podanej kolumny we wszystkich rekordach grupy
+avg() - srednia arytmetyczna wartosci podanej kolumny we wszystkich rekordach grupy
+min() - najmniejsza wartosc podanej kolumny we wszystkich rekordach grupy
+max() - najwieksza wartosc podanej kolumny we wszystkich rekordach grupy
+count(*) - liczba wszystkich rekordow grupy
+
+
+select funkcja_grupowa(kolumna) from tabela group by kolumna_grupująca
+
+przyklad
+select miasto, avg(pensja) from pracownicy group by miasto
+jaka jest srednia pensji w roznych miastach
+czyli celem jest podzial pracownikow wg. miast, a nastepnie wyznaczenie sredniej pensji dla kazdego miasta (kazdej grupy)
+
+ZAPYTANIE
+select AVG(pensja) from pracownicy 
+select round(pensja) from pracownicy  
+round ci zaokragla
+
+
+ZADANIE
+wyznacz srednia pensje wszystkich pracownikow niepracujących w londynie
+
+
+select avg(pensja), miasto from pracownicy where miasto!="London" group by miasto;
+
+albo not like
+
+
+ZADANIE 2
+wyznacz srednie pensje pracownikow z pdozialem na miasta a nastepnie wybeirz te grupy (miasta) ktorych srednia pensja przekroczyla 100
+
+select avg(pensja), miasto from pracownicy group by miasto HAVING avg(pensja)>100;
