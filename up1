@@ -51,3 +51,19 @@ wyswieyl dla kazdego roku produkcji filmu srednia cene wypozyczenia
 select avg(cena), rok_produkcji from filmy GROUP by rok_produkcji order by rok_produkcji desc;
 
 zad2
+wyswietl cene najdrozszegof filmu w wypozycz
+select max(cena) from filmy;
+
+zad3
+select count(tytul) from filmy group by rok_produkcji having rok_produkcji='1984';
+
+zad4
+ile razy wypozyczono film taksowkarz
+
+select count(wypozyczenia.id_kopii) from wypozyczenia join kopie on kopie.id_kopii=wypozyczenia.id_kopii where kopie.id_filmu='4';
+
+zad5
+jaki byl sredni czs trwania wypozyczenia filmu 'ronin'? z dokladnoscia miejsca po przecinku
+SELECT round(avg(data_zwrotu-data_wypozyczenia),1) from wypozyczenia 
+join kopie on kopie.id_kopii=wypozyczenia.id_kopii 
+join filmy on filmy.id_filmu=kopie.id_filmu where tytul='Ronin';
