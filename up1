@@ -39,3 +39,15 @@ ZADANIE 2
 wyznacz srednie pensje pracownikow z pdozialem na miasta a nastepnie wybeirz te grupy (miasta) ktorych srednia pensja przekroczyla 100
 
 select avg(pensja), miasto from pracownicy group by miasto HAVING avg(pensja)>100;
+
+
+
+
+ZADANIA NA SZYBKOSC
+
+zad1
+wyswieyl dla kazdego roku produkcji filmu srednia cene wypozyczenia
+
+select avg(cena), rok_produkcji from filmy GROUP by rok_produkcji order by rok_produkcji desc;
+
+zad2
