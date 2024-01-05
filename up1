@@ -67,3 +67,6 @@ jaki byl sredni czs trwania wypozyczenia filmu 'ronin'? z dokladnoscia miejsca p
 SELECT round(avg(data_zwrotu-data_wypozyczenia),1) from wypozyczenia 
 join kopie on kopie.id_kopii=wypozyczenia.id_kopii 
 join filmy on filmy.id_filmu=kopie.id_filmu where tytul='Ronin';
+
+
+dupadupadupa
