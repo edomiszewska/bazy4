@@ -1,0 +1,18 @@
+zad1
+insert into kurs.filmy(id_filmu,tytul,rok_produkcji,cena) VALUES (11,"Komornik",2005,10.5);
+zad2
+DELETE filmy from filmy WHERE rok_produkcji=2005
+zad3
+UPDATE filmy set cena=cena+0.5 WHERE filmy.rok_produkcji<1980;
+zad4
+INSERT INTO filmy VALUES(12,"Nikofor",2004,9.5)
+zad5
+with cte as(
+SELECT * from filmy
+EXCEPT  
+SELECT filmy.id_filmu,filmy.tytul,filmy.rok_produkcji,filmy.cena from filmy JOIN obsada ON filmy.id_filmu=obsada.id_filmu
+);
+DELETE from cte;
+
+zad6
+UPDATE filmy set cena=5 where tytul="Taksowkarz"
